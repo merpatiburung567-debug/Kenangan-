@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story | HENDRI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            margin: 0; padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fff5f7; 
+            color: #d63384; 
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Latar Belakang Kelopak Bunga Berjatuhan */
+        .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+        header { padding: 100px 20px; background: white; border-bottom: 2px dashed #ffc1e3; }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; margin: 0; color: #ff4d6d; }
+        p.subtitle { font-size: 1.2rem; color: #ff85a1; }
+
+        /* Frame Foto */
+        .photo-container { 
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 50px 20px; 
+        }
+        .photo-frame {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: rotate(-3deg);
+            transition: 0.5s;
+            max-width: 300px;
+        }
+        .photo-frame:nth-child(even) { transform: rotate(3deg); }
+        .photo-frame:hover { transform: rotate(0deg) scale(1.1); z-index: 5; }
+
+        .photo-frame img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover; /* Biar foto tidak gepeng */
+            border-radius: 5px;
+            background-color: #eee; /* Warna placeholder jika foto belum ada */
+        }
+
+        .photo-caption { font-family: 'Dancing Script', cursive; font-size: 1.5rem; margin-top: 15px; }
+
+        /* Pesan Cinta */
+        .message-box { padding: 80px 20px; background: #ff4d6d; color: white; border-radius: 50px 50px 0 0; }
+        .message-box h2 { font-family: 'Dancing Script', cursive; font-size: 3rem; }
+
+        footer { padding: 30px; font-size: 0.9rem; color: #ff85a1; }
+
+        /* Animasi Hati */
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        .heart-icon { position: absolute; color: #ff4d6d; animation: fall linear infinite; }
+    </style>
+</head>
+<body>
+
+    <div class="hearts" id="heart-container"></div>
+
+    <header>
+        <h1>Our Beautiful Memories</h1>
+        <p class="subtitle">Setiap detik bersamamu adalah anugerah terindah...</p>
+    </header>
+
+    <section class="photo-container">
+        <div class="photo-frame">
+            <img src="https://i.postimg.cc/2q1MqW7g/image-jpg4.jpg=80&w=500" alt="Foto Kenangan">
+            <div class="photo-caption">IMUT JUGA YAH FOTO KAMU DI SEKOLAH</div>
+        </div>
+
+        <div class="photo-frame">
+            <img src="https://i.postimg.cc/ZB3QHh2m/image-jpg6.jpg=80&w=500" alt="Foto Kenangan">
+            <div class="photo-caption">waktu kamu sakit wkwk</div>
+        </div>
+
+        <div class="photo-frame">
+            <img src="https://i.postimg.cc/HJKG3zLJ/image-jpg5.jpg=80&w=500" alt="Foto Kenangan">
+            <div class="photo-caption">Selamanya Mencintaimu</div>
+        </div>
+    </section>
+
+    <section class="message-box">
+        <h2>Untukmu, cabiku</h2>
+        <p>"terima kasih yah sudah mau jadi bagian dari hidup ku dulu Hendri harap kamu mendapatkan pria yang seprekuensi dengan mu."</p>
+    </section>
+
+    <footer>
+        <p>Dibuat dengan ❤️ oleh HENDRI</p>
+    </footer>
+
+    <script>
+        // Script untuk membuat hujan hati otomatis
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-icon');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.getElementById('heart-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
